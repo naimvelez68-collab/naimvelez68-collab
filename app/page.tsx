@@ -192,9 +192,21 @@ function HeroSection({ onOpen }: { onOpen: () => void }) {
             fontSize: 'clamp(0.9rem, 2.8vw, 1.3rem)',
             letterSpacing: '0.4em', color: '#FAF8F4',
             textShadow: '0 1px 6px rgba(0,0,0,0.45)',
-            marginBottom: 'clamp(8px,1.5vh,14px)',
+            marginBottom: '6px',
           }}>
             08 . 08 . 2026
+          </p>
+
+          {/* Ciudad */}
+          <p className="animate-fade-in delay-400" style={{
+            fontFamily: 'Josefin Sans, sans-serif', fontWeight: 300,
+            fontSize: 'clamp(0.6rem, 1.8vw, 0.75rem)',
+            letterSpacing: '0.32em', textTransform: 'uppercase',
+            color: 'rgba(255,255,255,0.72)',
+            textShadow: '0 1px 4px rgba(0,0,0,0.4)',
+            marginBottom: 'clamp(8px,1.5vh,14px)',
+          }}>
+            Ibarra · Imbabura · Ecuador
           </p>
 
           {/* Línea decorativa */}
@@ -327,7 +339,8 @@ function LetterSection({ onYes, onNo }: { onYes: () => void; onNo: () => void })
           </div>
 
           <p style={{ fontFamily: 'Josefin Sans, sans-serif', fontWeight: 400, fontSize: 'clamp(0.62rem,2vw,0.68rem)', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--rifle)', marginBottom: '3px' }}>Naim & Sarahí</p>
-          <p style={{ fontFamily: 'Josefin Sans, sans-serif', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.2em', color: 'var(--grullo)', marginBottom: '20px' }}>08 · 08 · 2026</p>
+          <p style={{ fontFamily: 'Josefin Sans, sans-serif', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.2em', color: 'var(--grullo)', marginBottom: '4px' }}>08 · 08 · 2026</p>
+          <p style={{ fontFamily: 'Josefin Sans, sans-serif', fontWeight: 300, fontSize: '0.54rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--sage)', marginBottom: '20px' }}>Ibarra · Imbabura · Ecuador</p>
 
           <Divider color="var(--grullo)" />
 

@@ -2,20 +2,25 @@
 
 @import "tailwindcss";
 
-/* ── Paleta verde elegante · Boda 2026 ─────────────────────── */
+/* ── Paleta · Summer Weddings 2026 ─────────────────────────── */
 :root {
-  --olive:       #4A5C2A;
-  --moss:        #3A4C1C;
-  --sage:        #7E8F5E;
-  --thyme:       #62724A;
-  --ecru:        #F2EDE3;
-  --cream:       #FAF8F4;
-  --rifle:       #4D5238;
-  --grullo:      #B0A48E;
-  --timberwolf:  #E2DED8;
-  --dark-brown:  #5C3B1C;
-  --birch:       #E8D89A;
-  --dark-photo:  #181D0B;
+  /* Verdes de la paleta */
+  --sage:        #8A9B70;   /* Sage  — acentos suaves, divisores    */
+  --moss:        #3E5225;   /* Moss  — hover botones, texto fuerte  */
+  --olive:       #4A5E28;   /* Olive — botones principales          */
+  --thyme:       #647A42;   /* Thyme — líneas, monograma            */
+  --fern:        #2F4E15;   /* Fern  — oscuro profundo              */
+
+  /* Neutros cálidos */
+  --ecru:        #F2EDE3;   /* Ecru  — fondo principal              */
+  --cream:       #FAF8F4;   /* Cream — tarjetas, fondo carta        */
+  --timberwolf:  #E2DED8;   /* Timberwolf — sección Con amor        */
+  --grullo:      #AEA38E;   /* Grullo — divisores, bordes           */
+  --dark-brown:  #5C3B1C;   /* Dark brown — cuerpo texto            */
+  --rifle:       #4D5238;   /* Rifle green — texto principal        */
+
+  /* Foto */
+  --dark-photo:  #1A1E0C;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,24 +38,6 @@ body {
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--ecru); }
 ::-webkit-scrollbar-thumb { background: var(--grullo); border-radius: 2px; }
-
-/* ── Hero photo — altura natural en mobile, full en desktop ── */
-.hero-photo-wrap {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background: var(--dark-photo);
-  /* mobile: respeta la proporción 3:4 de la foto */
-  height: min(133vw, 96svh);
-}
-
-@media (min-width: 1024px) {
-  .hero-photo-wrap {
-    /* desktop: ocupa todo el alto (en columna izquierda) */
-    height: 100svh;
-    width: 100%;
-  }
-}
 
 /* ── Animaciones ───────────────────────────────────────────── */
 @keyframes fadeInUp {
