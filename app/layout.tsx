@@ -1,16 +1,20 @@
 import type { Metadata } from 'next'
 import './globals.css'
 
+const URL = 'https://velezguevara-boda.vercel.app'
+
 export const metadata: Metadata = {
   title: 'Naim & Sarahí · Save the Date · 08 · 08 · 2026',
   description: 'Con mucha alegría queremos que guardes esta fecha especial. Ibarra, Ecuador · 08 · 08 · 2026',
+  metadataBase: new URL(URL),
   openGraph: {
     title: 'Naim & Sarahí · Save the Date',
     description: '"Ponme como un sello sobre tu corazón." — Cantares 8:6',
     type: 'website',
+    url: URL,
     images: [
       {
-        url: '/og-image.png',
+        url: `${URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: 'Save the Date — Naim & Sarahí · 08 · 08 · 2026',
@@ -21,7 +25,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Naim & Sarahí · Save the Date',
     description: '"Ponme como un sello sobre tu corazón." — Cantares 8:6',
-    images: ['/og-image.png'],
+    images: [`${URL}/og-image.png`],
   },
 }
 
