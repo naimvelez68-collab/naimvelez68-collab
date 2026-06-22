@@ -1,0 +1,96 @@
+{
+  "name": "Boda Naim & Sarahí — Notificación de confirmación",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "boda-confirmacion",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-entrada",
+      "name": "Webhook — Supabase",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "boda-confirmacion"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.evento }}",
+              "rightValue": "nueva_confirmacion",
+              "operator": { "type": "string", "operation": "equals" }
+            }
+          ]
+        }
+      },
+      "id": "filtro-evento",
+      "name": "Filtrar confirmaciones válidas",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\nconst fecha = new Date(data.fecha).toLocaleString('es-MX', {\n  timeZone: 'America/Mexico_City',\n  year: 'numeric',\n  month: 'long',\n  day: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit'\n});\n\nreturn [{\n  json: {\n    ...data,\n    nombre_completo: `${data.nombre} ${data.apellido}`,\n    fecha_formateada: fecha,\n    mensaje_whatsapp: `🌿 *Nueva confirmación — Boda Naim & Sarahí*\\n\\n👤 *Nombre:* ${data.nombre} ${data.apellido}\\n📅 *Registrado:* ${fecha}\\n✅ *Total confirmados:* ${data.total}`,\n    mensaje_email: `<h2>Nueva confirmación recibida</h2><p><strong>${data.nombre} ${data.apellido}</strong> quiere recibir su invitación.</p><p>Fecha: ${fecha}</p><p>Total de confirmados: ${data.total}</p>`\n  }\n}];"
+      },
+      "id": "formatear-datos",
+      "name": "Formatear datos",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $vars.EMAIL_NOVIOS }}",
+        "subject": "💌 Nueva confirmación — {{ $json.nombre_completo }}",
+        "message": "={{ $json.mensaje_email }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "enviar-email",
+      "name": "Email a los novios",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [900, 200],
+      "notes": "Configurar credenciales de email en N8N. Usar Gmail, Outlook o SMTP."
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"ok\": true }",
+        "options": {}
+      },
+      "id": "respuesta-ok",
+      "name": "Responder OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [900, 400]
+    }
+  ],
+  "connections": {
+    "Webhook — Supabase": {
+      "main": [[{ "node": "Filtrar confirmaciones válidas", "type": "main", "index": 0 }]]
+    },
+    "Filtrar confirmaciones válidas": {
+      "main": [[{ "node": "Formatear datos", "type": "main", "index": 0 }]]
+    },
+    "Formatear datos": {
+      "main": [[
+        { "node": "Email a los novios", "type": "main", "index": 0 },
+        { "node": "Responder OK", "type": "main", "index": 0 }
+      ]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "instanceId": "boda-naim-sarahi"
+  }
+}
