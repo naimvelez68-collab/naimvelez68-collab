@@ -125,57 +125,102 @@ function HeroSection({ onOpen }: { onOpen: () => void }) {
           />
         </div>
 
-        {/* Velo crema editorial */}
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(240,235,224,0.20)' }} />
+        {/* Velo oscuro centrado — mejora legibilidad del texto */}
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.08) 30%, rgba(0,0,0,0.08) 60%, rgba(0,0,0,0.30) 100%)' }} />
 
         {/* ── TEXTO SOBRE LA FOTO ───────────────────────────── */}
         <div style={{
           position: 'absolute', inset: 0,
           display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'center',
-          padding: 'clamp(32px,6vw,56px) clamp(20px,5vw,40px)',
+          padding: '16px clamp(16px,5vw,40px)',
           textAlign: 'center',
+          gap: 0,
         }}>
 
           {/* SAVE THE DATE */}
-          <p className="animate-fade-in delay-100" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 400, fontSize: 'clamp(1.5rem,5.5vw,3rem)', letterSpacing: '0.38em', textTransform: 'uppercase', color: '#1C1E0C', opacity: 0.82, marginBottom: '12px' }}>
+          <p className="animate-fade-in delay-100" style={{
+            fontFamily: 'Cormorant Garamond, serif', fontWeight: 400,
+            fontSize: 'clamp(1.1rem, 3.8vw, 2.2rem)',
+            letterSpacing: '0.42em', textTransform: 'uppercase',
+            color: '#FAF8F4',
+            textShadow: '0 1px 8px rgba(0,0,0,0.5)',
+            marginBottom: '8px',
+          }}>
             Save the Date
           </p>
 
-          <div className="animate-fade-in delay-200" style={{ width: '44px', height: '1px', background: 'var(--grullo)', marginBottom: 'clamp(18px,3.5vh,32px)', opacity: 0.65 }} />
+          <div className="animate-fade-in delay-200" style={{ width: '40px', height: '1px', background: 'rgba(255,255,255,0.55)', marginBottom: 'clamp(10px,2vh,18px)' }} />
 
           {/* NAIM */}
-          <h1 className="animate-fade-in-up delay-200" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(3.8rem,14vw,8rem)', color: '#1C1E0C', lineHeight: 0.9, letterSpacing: '0.04em', marginBottom: 'clamp(8px,1.5vh,14px)', textShadow: '0 1px 0 rgba(255,255,255,0.25)' }}>
+          <h1 className="animate-fade-in-up delay-200" style={{
+            fontFamily: 'Cormorant Garamond, serif', fontWeight: 300,
+            fontSize: 'clamp(3.2rem, 11vw, 6.5rem)',
+            color: '#FAF8F4', lineHeight: 0.92, letterSpacing: '0.04em',
+            textShadow: '0 2px 12px rgba(0,0,0,0.45)',
+            marginBottom: 'clamp(4px,1vh,10px)',
+          }}>
             Naim
           </h1>
 
           {/* & */}
-          <p className="animate-fade-in delay-300" style={{ fontFamily: 'Pinyon Script, cursive', fontSize: 'clamp(2.4rem,8vw,5rem)', color: 'var(--thyme)', lineHeight: 1, marginBottom: 'clamp(8px,1.5vh,14px)' }}>
+          <p className="animate-fade-in delay-300" style={{
+            fontFamily: 'Pinyon Script, cursive',
+            fontSize: 'clamp(2rem, 7vw, 4rem)',
+            color: '#A8C080',
+            textShadow: '0 1px 6px rgba(0,0,0,0.4)',
+            lineHeight: 1,
+            marginBottom: 'clamp(4px,1vh,10px)',
+          }}>
             &
           </p>
 
           {/* SARAHÍ */}
-          <h1 className="animate-fade-in-up delay-300" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(3.8rem,14vw,8rem)', color: '#1C1E0C', lineHeight: 0.9, letterSpacing: '0.04em', marginBottom: 'clamp(16px,3vh,28px)', textShadow: '0 1px 0 rgba(255,255,255,0.25)' }}>
+          <h1 className="animate-fade-in-up delay-300" style={{
+            fontFamily: 'Cormorant Garamond, serif', fontWeight: 300,
+            fontSize: 'clamp(3.2rem, 11vw, 6.5rem)',
+            color: '#FAF8F4', lineHeight: 0.92, letterSpacing: '0.04em',
+            textShadow: '0 2px 12px rgba(0,0,0,0.45)',
+            marginBottom: 'clamp(10px,2vh,20px)',
+          }}>
             Sarahí
           </h1>
 
           {/* Fecha */}
-          <p className="animate-fade-in delay-400" style={{ fontFamily: 'Josefin Sans, sans-serif', fontWeight: 300, fontSize: 'clamp(0.85rem,3.2vw,1.2rem)', letterSpacing: '0.38em', color: '#1C1E0C', opacity: 0.82, marginBottom: 'clamp(12px,2vh,18px)' }}>
+          <p className="animate-fade-in delay-400" style={{
+            fontFamily: 'Josefin Sans, sans-serif', fontWeight: 300,
+            fontSize: 'clamp(0.9rem, 2.8vw, 1.3rem)',
+            letterSpacing: '0.4em', color: '#FAF8F4',
+            textShadow: '0 1px 6px rgba(0,0,0,0.45)',
+            marginBottom: 'clamp(8px,1.5vh,14px)',
+          }}>
             08 . 08 . 2026
           </p>
 
           {/* Línea decorativa */}
-          <div className="animate-fade-in delay-400" style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: 'clamp(12px,2vh,18px)' }}>
-            <div style={{ width: '36px', height: '1px', background: 'var(--thyme)', opacity: 0.65 }} />
-            <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'var(--thyme)', opacity: 0.65 }} />
-            <div style={{ width: '36px', height: '1px', background: 'var(--thyme)', opacity: 0.65 }} />
+          <div className="animate-fade-in delay-400" style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: 'clamp(8px,1.5vh,14px)' }}>
+            <div style={{ width: '32px', height: '1px', background: '#A8C080', opacity: 0.8 }} />
+            <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#A8C080', opacity: 0.8 }} />
+            <div style={{ width: '32px', height: '1px', background: '#A8C080', opacity: 0.8 }} />
           </div>
 
           {/* Frase bíblica */}
-          <p className="animate-fade-in delay-500" style={{ fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontWeight: 400, fontSize: 'clamp(0.88rem,3vw,1.1rem)', color: '#1C1E0C', opacity: 0.68, marginBottom: '5px', lineHeight: 1.6 }}>
+          <p className="animate-fade-in delay-500" style={{
+            fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontWeight: 400,
+            fontSize: 'clamp(0.95rem, 2.8vw, 1.18rem)',
+            color: '#FAF8F4', textShadow: '0 1px 6px rgba(0,0,0,0.45)',
+            marginBottom: '4px', lineHeight: 1.6,
+          }}>
             "Ponme como un sello sobre tu corazón."
           </p>
-          <p className="animate-fade-in delay-500" style={{ fontFamily: 'Josefin Sans, sans-serif', fontWeight: 300, fontSize: 'clamp(0.5rem,1.7vw,0.62rem)', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#1C1E0C', opacity: 0.48, marginBottom: 'clamp(18px,3vh,32px)' }}>
+          <p className="animate-fade-in delay-500" style={{
+            fontFamily: 'Josefin Sans, sans-serif', fontWeight: 300,
+            fontSize: 'clamp(0.6rem, 1.8vw, 0.72rem)',
+            letterSpacing: '0.28em', textTransform: 'uppercase',
+            color: 'rgba(255,255,255,0.7)',
+            textShadow: '0 1px 4px rgba(0,0,0,0.4)',
+            marginBottom: 'clamp(12px,2vh,22px)',
+          }}>
             Cantares 8:6
           </p>
 
@@ -183,14 +228,32 @@ function HeroSection({ onOpen }: { onOpen: () => void }) {
           <button
             onClick={onOpen}
             className="animate-fade-in delay-600"
-            style={{ background: '#1C1E0C', border: 'none', color: '#FAF8F4', fontFamily: 'Josefin Sans, sans-serif', fontWeight: 400, fontSize: 'clamp(0.6rem,2vw,0.72rem)', letterSpacing: '0.3em', textTransform: 'uppercase', padding: 'clamp(14px,2.5vh,18px) clamp(32px,6vw,56px)', cursor: 'pointer', transition: 'all 0.4s ease', marginBottom: 'clamp(10px,1.8vh,14px)' }}
+            style={{
+              background: 'rgba(28,30,12,0.88)',
+              border: '1px solid rgba(255,255,255,0.25)',
+              color: '#FAF8F4',
+              fontFamily: 'Josefin Sans, sans-serif', fontWeight: 400,
+              fontSize: 'clamp(0.62rem, 1.8vw, 0.74rem)',
+              letterSpacing: '0.3em', textTransform: 'uppercase',
+              padding: 'clamp(12px,2vh,16px) clamp(28px,5vw,52px)',
+              cursor: 'pointer', transition: 'all 0.4s ease',
+              marginBottom: 'clamp(8px,1.5vh,12px)',
+              backdropFilter: 'blur(4px)',
+            }}
             onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--moss)' }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = '#1C1E0C' }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(28,30,12,0.88)' }}
           >
             Abrir nuestra fecha
           </button>
 
-          <p className="animate-fade-in delay-600" style={{ fontFamily: 'Josefin Sans, sans-serif', fontWeight: 300, fontSize: 'clamp(0.48rem,1.6vw,0.58rem)', letterSpacing: '0.32em', textTransform: 'uppercase', color: '#1C1E0C', opacity: 0.4, marginBottom: 'clamp(14px,2.5vh,24px)' }}>
+          <p className="animate-fade-in delay-600" style={{
+            fontFamily: 'Josefin Sans, sans-serif', fontWeight: 300,
+            fontSize: 'clamp(0.58rem, 1.6vw, 0.68rem)',
+            letterSpacing: '0.32em', textTransform: 'uppercase',
+            color: 'rgba(255,255,255,0.6)',
+            textShadow: '0 1px 4px rgba(0,0,0,0.3)',
+            marginBottom: 'clamp(10px,1.8vh,18px)',
+          }}>
             Una invitación te espera
           </p>
 
