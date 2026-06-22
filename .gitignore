@@ -44,3 +44,5 @@ next-env.d.ts
 .env.local
 .env.production
 public/music.mp3
+
+.vercel
