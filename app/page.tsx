@@ -312,6 +312,17 @@ function ConAmorSection() {
         <span style={{ color: 'var(--grullo)', fontSize: '0.55rem' }}>✦</span>
         <div style={{ width: '32px', height: '1px', background: 'linear-gradient(to left, transparent, var(--grullo))' }} />
       </div>
+
+      {/* Indicador de scroll */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', marginTop: '32px', opacity: 0.6 }}>
+        <p style={{ fontFamily: 'Josefin Sans, sans-serif', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--rifle)' }}>
+          Desliza para responder
+        </p>
+        <svg className="animate-scroll-pulse" width="18" height="24" viewBox="0 0 18 24" fill="none">
+          <line x1="9" y1="0" x2="9" y2="16" stroke="var(--thyme)" strokeWidth="1.2"/>
+          <polyline points="4,12 9,18 14,12" fill="none" stroke="var(--thyme)" strokeWidth="1.2"/>
+        </svg>
+      </div>
     </section>
   )
 }
