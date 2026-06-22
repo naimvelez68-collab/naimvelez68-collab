@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 const siteUrl = 'https://velezguevara-boda.vercel.app'
+const ogImage = `${siteUrl}/og.jpg`
 
 export const metadata: Metadata = {
   title: 'Naim & Sarahí · Save the Date · 08 · 08 · 2026',
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     images: [
       {
-        url: `${siteUrl}/og-image.png`,
+        url: ogImage,
         width: 1200,
         height: 630,
         alt: 'Save the Date — Naim & Sarahí · 08 · 08 · 2026',
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Naim & Sarahí · Save the Date',
     description: '"Ponme como un sello sobre tu corazón." — Cantares 8:6',
-    images: [`${siteUrl}/og-image.png`],
+    images: [ogImage],
   },
 }
 
