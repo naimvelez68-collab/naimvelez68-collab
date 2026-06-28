@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseAdmin } from '@/lib/supabase'
+import { notifyPlanner } from '@/lib/notify-planner'
 
 // Separador especial para codificar "acompañante de" en el campo nombre
 // Usamos § (U+00A7) que nunca aparece en nombres reales
@@ -40,5 +41,11 @@ export async function POST(req: NextRequest) {
     console.error(error)
     return NextResponse.json({ error: error.message }, { status: 500 })
   }
+
+  // Only notify planner for main guests (not companions)
+  if (!acompanante_de?.trim()) {
+    notifyPlanner(nombre.trim(), apellido.trim())
+  }
+
   return NextResponse.json({ success: true })
 }

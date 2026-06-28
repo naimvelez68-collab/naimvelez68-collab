@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseAdmin } from '@/lib/supabase'
+import { notifyPlanner } from '@/lib/notify-planner'
 
 export async function POST(req: NextRequest) {
   try {
@@ -24,6 +25,9 @@ export async function POST(req: NextRequest) {
       console.error('Supabase error:', error)
       return NextResponse.json({ error: 'Error al guardar' }, { status: 500 })
     }
+
+    // Notify wedding planner in background (fire-and-forget)
+    notifyPlanner(nombre.trim(), apellido.trim())
 
     return NextResponse.json({ success: true })
   } catch {
